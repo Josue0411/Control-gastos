@@ -1,5 +1,9 @@
 import CerrarModal from "../img/cerrar.svg";
+import { useState } from "react";
 const Modal = ({ setModal, animarModal, setAnimarModal }) => {
+  const [nombre, setNombre] = useState("");
+  const [cantidad, setCantidad] = useState(0);
+  const [categoria, setCategoria] = useState("");
   const ocultarModal = () => {
     setAnimarModal(false);
     setTimeout(() => {
@@ -22,15 +26,28 @@ const Modal = ({ setModal, animarModal, setAnimarModal }) => {
             id="nombre"
             type="text"
             placeholder="Añade el nombre del Gasto"
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
           />
         </div>
         <div className="campo">
           <label htmlFor="cantidad">Cantidad</label>
-          <input id="cantidad" type="number" placeholder="Añade la Cantidad" />
+          <input
+            id="cantidad"
+            type="number"
+            placeholder="Añade la Cantidad"
+            value={cantidad}
+            onChange={(e) => setCantidad(Number(e.target.value))}
+          />
         </div>
         <div className="campo">
           <label htmlFor="categoria">Categoria</label>
-          <select name="" id="categoria">
+          <select
+            name=""
+            id="categoria"
+            value={categoria}
+            onChange={(e) => setCategoria(e.target.value)}
+          >
             <option value="">--Seleccione--</option>
             <option value="ahorro">Ahorro</option>
             <option value="comida">Comida</option>
@@ -41,7 +58,7 @@ const Modal = ({ setModal, animarModal, setAnimarModal }) => {
             <option value="suscripciones">Suscripciones</option>
           </select>
         </div>
-        <input type="submit"  value="Añadir Gastos" />
+        <input type="submit" value="Añadir Gastos" />
       </form>
     </div>
   );
