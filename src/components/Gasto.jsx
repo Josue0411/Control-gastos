@@ -24,7 +24,7 @@ const dicconarioIconos = {
   salud: IconoSalud,
   suscripbciones: IconoSuscripciones,
 };
-const Gasto = ({ gasto, setGastoEditar }) => {
+const Gasto = ({ gasto, setGastoEditar, eliminarGasto }) => {
   const { categoria, nombre, cantidad, id, fecha } = gasto;
   const leadingActions = () => (
     <LeadingActions>
@@ -33,7 +33,7 @@ const Gasto = ({ gasto, setGastoEditar }) => {
   );
   const trailingActions = () => (
     <TrailingActions>
-      <SwipeAction onClick={() => console.log("Eliminar")}>
+      <SwipeAction onClick={() => eliminarGasto(id)} destructive={true}>
         Eliminar
       </SwipeAction>
     </TrailingActions>
@@ -49,8 +49,8 @@ const Gasto = ({ gasto, setGastoEditar }) => {
             <img src={dicconarioIconos[categoria]} alt="Icono gasto" />
 
             <div className="descripcion-gasto">
-              <p className="categoria">{gasto.categoria}</p>
-              <p className="nombre-gasto">{gasto.nombre}</p>
+              <p className="categoria">{categoria}</p>
+              <p className="nombre-gasto">{nombre}</p>
               <p className="fecha-gasto">
                 Agregado el:{""}
                 <span> {formatearFecha(fecha)} </span>
