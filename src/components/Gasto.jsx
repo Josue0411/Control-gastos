@@ -1,8 +1,16 @@
-
-const Gasto = () => {
+const Gasto = ({ gasto }) => {
+  const { categoria, nombre, cantidad, id } = gasto;
   return (
-    <div><p>desde Gasto.jsx</p></div>
-  )
-}
+    <div className="gasto sombra">
+      <div className="contenido-gasto">
+        <div className="descripcion-gasto">
+          <p className="categoria">{gasto.categoria}</p>
+          <p className="nombre-gasto">{gasto.nombre}</p>
 
-export default Gasto
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Gasto;
