@@ -22,7 +22,7 @@ const dicconarioIconos = {
   gastos: IconoGastos,
   ocio: IconoOcio,
   salud: IconoSalud,
-  suscripbciones: IconoSuscripciones,
+  suscripciones: IconoSuscripciones,
 };
 const Gasto = ({ gasto, setGastoEditar, eliminarGasto }) => {
   const { categoria, nombre, cantidad, id, fecha } = gasto;
