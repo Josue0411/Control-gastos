@@ -1,6 +1,10 @@
 import { useState } from "react";
 import Mensaje from "./Mensaje";
-const NuevoPresupuesto = ({ presupuesto, setPresupuesto,setValidPresupuesto }) => {
+const NuevoPresupuesto = ({
+  presupuesto,
+  setPresupuesto,
+  setIsValidPresupuesto,
+}) => {
   const [mensaje, setMensaje] = useState("");
   const handlePresupuesto = (e) => {
     e.preventDefault();
@@ -9,7 +13,7 @@ const NuevoPresupuesto = ({ presupuesto, setPresupuesto,setValidPresupuesto }) =
       return;
     }
     setMensaje("");
-    setValidPresupuesto(true)
+    setIsValidPresupuesto(true);
   };
   return (
     <div className="contenedor.presupuesto contenedor sombra">

@@ -11,7 +11,7 @@ function App() {
   const [presupuesto, setPresupuesto] = useState(
     Number(localStorage.getItem("presupuesto")) ?? 0
   );
-  const [isValidPresupuesto, setValidPresupuesto] = useState(false);
+  const [isValidPresupuesto, setIsValidPresupuesto] = useState(false);
   const [modal, setModal] = useState(false);
   const [animarModal, setAnimarModal] = useState(false);
   const [gastos, setGastos] = useState(
@@ -41,7 +41,7 @@ function App() {
   useEffect(() => {
     const presupuestoLS = Number(localStorage.getItem("presupuesto" ?? 0));
     if (presupuestoLS > 0) {
-      setValidPresupuesto(true);
+      setIsValidPresupuesto(true);
     }
   }, []);
   useEffect(() => {
@@ -88,10 +88,11 @@ function App() {
     <div className={modal ? "fijar" : ""}>
       <Header
         gastos={gastos}
+        setGastos={setGastos}
         presupuesto={presupuesto}
         setPresupuesto={setPresupuesto}
         isValidPresupuesto={isValidPresupuesto}
-        setValidPresupuesto={setValidPresupuesto}
+        setIsValidPresupuesto={setIsValidPresupuesto}
       />
       {isValidPresupuesto && (
         <>
